@@ -28,16 +28,16 @@ public class CalendarApplication {
 
 		int userOption = 0;
 
-		System.out
-				.println("========================================================");
-		System.out
-				.println("||                                                    ||");
-		System.out
-				.println("||                Calendar Application                ||");
-		System.out
-				.println("||                                                    ||");
-		System.out
-				.println("========================================================");
+		System.out.println("============================"
+				+ "============================");
+		System.out.println("||                          "
+				+ "                          ||");
+		System.out.println("||                Calendar"
+				+ " Application                ||");
+		System.out.println("||                          "
+				+ "                          ||");
+		System.out.println("============================"
+				+ "============================");
 
 		while (userOption != 3) {
 			// pozivamo metodu koja ispisuje main menu
@@ -337,50 +337,52 @@ public class CalendarApplication {
 
 	}
 
-	public static void printMainMenu() { // metoda koja ispisuje main menu
+	// metoda koja ispisuje main menu
+	public static void printMainMenu() {
 		System.out.println(" ");
 		System.out.println("- MAIN MENU -");
-		System.out
-				.println("--------------------------------------------------------");
+		System.out.println("-----------------------------"
+				+ "---------------------------");
 		System.out.println("1. Display calendar");
 		System.out.println("2. Reminder list");
 		System.out.println("3. Exit application");
-		System.out
-				.println("--------------------------------------------------------");
+		System.out.println("-----------------------------"
+				+ "---------------------------");
 	}
 
-	public static void printDisplayCalendarMenu() { // metoda koja ispisuje
-													// display calendar menu
+	// metoda koja ispisuje display calendar menu
+	public static void printDisplayCalendarMenu() {
 		System.out.println(" ");
 		System.out.println("- DISPLAY CALENDAR MENU -");
-		System.out
-				.println("--------------------------------------------------------");
+		System.out.println("-----------------------------"
+				+ "---------------------------");
 		System.out.println("1. Add reminder");
 		System.out.println("2. Back to main menu");
-		System.out
-				.println("--------------------------------------------------------");
+		System.out.println("-----------------------------"
+				+ "---------------------------");
 	}
 
-	public static void printReminderListMenu() { // metoda koja ispisuje
-													// reminder list menu
+	// metoda koja ispisuje reminder list menu
+	public static void printReminderListMenu() {
 		System.out.println(" ");
 		System.out.println("- REMINDER LIST MENU -");
-		System.out
-				.println("--------------------------------------------------------");
+		System.out.println("-----------------------------"
+				+ "---------------------------");
 		System.out.println("1. Delete reminder");
 		System.out.println("2. Back to main menu");
-		System.out
-				.println("--------------------------------------------------------");
+		System.out.println("-----------------------------"
+				+ "---------------------------");
 	}
 
-	public static void displayCalendar(Calendar calendar) { // metoda koja
-															// ispisuje kalendar
+	// metoda koja ispisuje kalendar
+	public static void displayCalendar(Calendar calendar) {
 		// pravimo string sa nazivom odrabranog mjeseca
 		String monthName = calendar.getDisplayName(Calendar.MONTH,
 				Calendar.LONG, Locale.getDefault());
 		// pravimo string sa nazivom odabrane godine
 		String sYear = calendar.get(Calendar.YEAR) + "";
-		String dashes = "----------------------------------------------------";
+		String dashes = "--------------------------"
+				+ "--------------------------";
 
 		System.out.println(" ");
 		// centriramo ispis odrabranog mjeseca i godine
@@ -419,15 +421,12 @@ public class CalendarApplication {
 		System.out.println();
 	}
 
-	public static void printReminderList(ArrayList<Reminder> reminderList) { // metoda
-																				// koja
-																				// ispisuje
-																				// reminder
-																				// list
+	// metoda koja ispisuje reminder list
+	public static void printReminderList(ArrayList<Reminder> reminderList) {
 		System.out.println(" ");
 		System.out.printf(" %-3s \t %-11s \t %-5s", "Num", "Date", "Note");
-		System.out
-				.print("\n--------------------------------------------------------\n");
+		System.out.print("\n----------------------------"
+				+ "----------------------------\n");
 
 		for (int i = 0; i < reminderList.size(); i++) {
 			// pravimo novi objekat calendar koji uzima trenutni calendar
@@ -444,9 +443,9 @@ public class CalendarApplication {
 		}
 	}
 
+	// metoda koja kopira podatke iz fajla u reminder list
 	public static void copyFileToReminderList(ArrayList<Reminder> reminderList)
-			throws IOException { // metoda koja kopira podatke iz fajla u
-									// reminder list
+			throws IOException {
 		Path path = Paths.get("src/calendar/reminder list.txt");
 		// pravimo novi scanner objekat koji ce citati podatke sa fajla
 		Scanner readFile = new Scanner(path);
@@ -465,7 +464,7 @@ public class CalendarApplication {
 			int year = Integer.parseInt(dateArray[2]);
 
 			// pravimo novi objekat gregoriancalendar sa specificnom godinom,
-			// mjesecom i datutom
+			// mjesecom i datumom
 			Calendar newCalendar = new GregorianCalendar(year, month, day);
 			// pravimo novi objekat reminder sa note-om i datumom koji smo
 			// ucitali sa fajla
@@ -479,8 +478,9 @@ public class CalendarApplication {
 		readFile.close();
 	}
 
+	// metoda koja kopira reminder list u fajl
 	public static void copyReminderListToFile(ArrayList<Reminder> reminderList)
-			throws IOException { // metoda koja kopira reminder list u fajl
+			throws IOException {
 		Path path = Paths.get("src/calendar/reminder list.txt");
 		// pravimo novi bufferedwriter objekat
 		BufferedWriter writer = Files.newBufferedWriter(path);

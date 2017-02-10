@@ -3,41 +3,50 @@ package calendar;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-public class Reminder implements Comparable<Reminder> { // implementiramo comparable interface da bi mogli sortirati remindere
-	
+public class Reminder implements Comparable<Reminder> {
+	// implementiramo comparable interface da bi mogli sortirati remindere
+
 	private String note;
 	private Calendar calendar;
 
-	public Reminder() { // napravimo konstruktor koji ne prima argumente
+	// napravimo konstruktor koji ne prima argumente
+	public Reminder() {
 		note = "";
 		calendar = new GregorianCalendar();
 	}
 
-	public Reminder(String note, Calendar calendar) { // napravimo konstruktor sa argumentima note i calendar
+	// napravimo konstruktor sa argumentima note i calendar
+	public Reminder(String note, Calendar calendar) {
 		this.note = note;
 		this.calendar = calendar;
 	}
 
-	public String getNote() { // pravimo getter za note
+	// pravimo getter za note
+	public String getNote() {
 		return note;
 	}
 
-	public void setNote(String note) { // pravimo setter za note
+	// pravimo setter za note
+	public void setNote(String note) {
 		this.note = note;
 	}
 
-	public Calendar getCalendar() { // pravimo getter za calendar
+	// pravimo getter za calendar
+	public Calendar getCalendar() {
 		return calendar;
 	}
 
+	// overrajdamo i implementiramo metodu toString
 	@Override
-	public String toString() { // overrajdamo i implementiramo metodu toString
-		return calendar.get(Calendar.DATE) + "." + (calendar.get(Calendar.MONTH) + 1) + "."
+	public String toString() {
+		return calendar.get(Calendar.DATE) + "."
+				+ (calendar.get(Calendar.MONTH) + 1) + "."
 				+ calendar.get(Calendar.YEAR) + ". - " + note;
 	}
 
+	// overrajdamo i implementiramo metodu compareTo da poredi objekat po datumu
 	@Override
-	public int compareTo(Reminder reminder) { // overrajdamo i implementiramo metodu compareTo da poredi objekat po datumu
+	public int compareTo(Reminder reminder) {
 		if (calendar.compareTo(reminder.getCalendar()) > 0) {
 			return 1;
 		} else if (calendar.compareTo(reminder.getCalendar()) == 0) {
