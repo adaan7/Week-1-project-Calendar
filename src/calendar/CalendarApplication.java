@@ -27,7 +27,8 @@ public class CalendarApplication {
 		copyFileToReminderList(reminderList);
 
 		int userOption = 0;
-
+		
+		// pozivamo metodu koja ispisuje header
 		printHeader();
 
 		while (userOption != 3) {
