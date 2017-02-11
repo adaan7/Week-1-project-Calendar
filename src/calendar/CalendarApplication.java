@@ -28,16 +28,7 @@ public class CalendarApplication {
 
 		int userOption = 0;
 
-		System.out.println("============================"
-				+ "============================");
-		System.out.println("||                          "
-				+ "                          ||");
-		System.out.println("||                Calendar"
-				+ " Application                ||");
-		System.out.println("||                          "
-				+ "                          ||");
-		System.out.println("============================"
-				+ "============================");
+		printHeader();
 
 		while (userOption != 3) {
 			// pozivamo metodu koja ispisuje main menu
@@ -335,6 +326,20 @@ public class CalendarApplication {
 		// ispisujemo pozdravnu poruku jer je korisnik izasao iz aplikacije
 		System.out.println("\nSee you soon!");
 
+	}
+	
+	// metoda koja ispisuje header
+	public static void printHeader() {
+		System.out.println("============================"
+				+ "============================");
+		System.out.println("||                          "
+				+ "                          ||");
+		System.out.println("||                Calendar"
+				+ " Application                ||");
+		System.out.println("||                          "
+				+ "                          ||");
+		System.out.println("============================"
+				+ "============================");
 	}
 
 	// metoda koja ispisuje main menu
