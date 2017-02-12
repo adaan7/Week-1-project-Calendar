@@ -18,6 +18,13 @@ public class CalendarApplication {
 
 	public static void main(String[] args) throws IOException {
 
+		// pozivamo metodu koja pokrece calendar aplikaciju
+		calendarApplication();
+
+	}
+
+	// metoda pomocu koje pokrecemo calendar aplikaciju
+	public static void calendarApplication() throws IOException {
 		// kreiramo novi scanner objekat
 		Scanner input = new Scanner(System.in);
 
@@ -27,7 +34,7 @@ public class CalendarApplication {
 		copyFileToReminderList(reminderList);
 
 		int userOption = 0;
-		
+
 		// pozivamo metodu koja ispisuje header
 		printHeader();
 
@@ -35,88 +42,24 @@ public class CalendarApplication {
 			// pozivamo metodu koja ispisuje main menu
 			printMainMenu();
 
-			// deklarisemo varijablu boolean tipa
-			boolean wrongUserOption = true;
-
-			// petlja radi sve dok korisnik ne unese ispravan unos
-			while (wrongUserOption) {
-				try {
-					// uzimamo unos od korisnika
-					System.out.print("Choose your option: ");
-					userOption = input.nextInt();
-
-					// postavljamo boolean varijablu na false da bi izasli iz
-					// petlje ako unos bude ispravan
-					wrongUserOption = false;
-
-					if (userOption < 1 || userOption > 3) {
-						System.out
-								.println("Wrong input. You have to enter a number from 1 to 3.");
-						wrongUserOption = true;
-					}
-				} catch (Exception ex) {
-					// ukoliko je uhvacen exception ispisujemo odgovarajucu
-					// poruku
-					System.out
-							.println("Wrong input. You have to enter a number from 1 to 3.");
-					input.nextLine();
-				}
-			}
+			// pozivamo metodu koja uzima unos integera od korisnika sa dva
+			// uslova
+			userOption = getIntUserInputWithTwoConditions(input, 1, 3,
+					"Choose your option: ");
 
 			if (userOption == 1) {
 				// DISPLAY CALENDAR
 
-				int month = 0, year = 0;
-				boolean wrongMonthInput = true, wrongYearInput = true;
-
 				System.out.println(" ");
 
-				while (wrongYearInput) {
-					try {
-						// uzimamo unos od korisnika
-						System.out.print("Enter a year (YYYY format): ");
-						year = input.nextInt();
-
-						// postavljamo boolean varijablu na false da bi izasli
-						// iz petlje ako unos bude ispravan
-						wrongYearInput = false;
-
-						if (year < 1970) {
-							System.out
-									.println("Wrong input. You have to enter a number from 1970.");
-							wrongYearInput = true;
-						}
-					} catch (Exception ex) {
-						System.out
-								.println("Wrong input. You have to enter a number from 1970.");
-						input.nextLine();
-					}
-				}
-
-				while (wrongMonthInput) {
-					try {
-						// uzimamo unos od korisnika
-						System.out
-								.print("Enter a month (number from 1 to 12): ");
-						month = input.nextInt();
-
-						// postavljamo boolean varijablu na false da bi izasli
-						// iz petlje ako unos bude ispravan
-						wrongMonthInput = false;
-
-						if (month < 1 || month > 12) {
-							System.out
-									.println("Wrong input. You have to enter a number from 1 to 12.");
-							wrongMonthInput = true;
-						}
-					} catch (Exception ex) {
-						// ukoliko je uhvacen exception ispisujemo odgovarajucu
-						// poruku
-						System.out
-								.println("Wrong input. You have to enter a number from 1 to 12.");
-						input.nextLine();
-					}
-				}
+				// pozivamo metodu koja uzima unos integera od korisnika sa
+				// jednim uslovom
+				int year = getIntUserInputWithOneCondition(input, 1970,
+						"Enter a year (YYYY format): ");
+				// pozivamo metodu koja uzima unos integera od korisnika sa dva
+				// uslova
+				int month = getIntUserInputWithTwoConditions(input, 1, 12,
+						"Enter a month (number from 1 to 12): ");
 
 				// kreiramo novi gregoriancalendar objekat
 				Calendar calendar = new GregorianCalendar(year, month - 1, 1);
@@ -134,69 +77,25 @@ public class CalendarApplication {
 					// pozivamo metodu koja ispisuje display calendar menu
 					printDisplayCalendarMenu();
 
-					boolean wrongUserCalendarOption = true;
-
-					while (wrongUserCalendarOption) {
-						try {
-							// uzimamo unos od korisnika
-							System.out.print("Choose your option: ");
-							userCalendarOption = input.nextInt();
-
-							wrongUserCalendarOption = false;
-
-							if (userCalendarOption < 1
-									|| userCalendarOption > 2) {
-								System.out
-										.println("Wrong input. You have to enter a number from 1 to 2.");
-								wrongUserCalendarOption = true;
-							}
-						} catch (Exception ex) {
-							// ako je uhvacen exception ispisujemo odgovarajucu
-							// poruku
-							System.out
-									.println("Wrong input. You have to enter a number from 1 to 2.");
-							input.nextLine();
-						}
-					}
+					// pozivamo metodu koja uzima unos integera od korisnika sa
+					// dva uslova
+					userCalendarOption = getIntUserInputWithTwoConditions(
+							input, 1, 2, "Choose your option: ");
 
 					if (userCalendarOption == 1) {
 						// ADD REMINDER
 
 						int day = 0;
 						String note = "";
-
-						boolean wrongDayInput = true;
+						String text = "Enter a day (from 1 to "
+								+ numberOfDaysInAMonth + "): ";
 
 						System.out.println(" ");
 
-						while (wrongDayInput) {
-							try {
-								// uzimamo unos od korisnika
-								System.out.print("Enter a day (from 1 to "
-										+ numberOfDaysInAMonth + "): ");
-								day = input.nextInt();
-
-								wrongDayInput = false;
-
-								if (day < 1 || day > numberOfDaysInAMonth) {
-									// ako je unesen dan manji od 1 ili veci od
-									// broja dana mjeseca ispisujemo
-									// odgovarajucu poruku
-									System.out
-											.println("Wrong input. You have to enter a number from 1 to "
-													+ numberOfDaysInAMonth
-													+ ".");
-									wrongDayInput = true;
-								}
-							} catch (Exception ex) {
-								// ako je uhvacen exception ispisujemo
-								// odgovarajucu poruku
-								System.out
-										.println("Wrong input. You have to enter a number from 1 to "
-												+ numberOfDaysInAMonth + ".");
-								input.nextLine();
-							}
-						}
+						// pozivamo metodu koja uzima unos integera od korisnika
+						// sa dva uslova
+						day = getIntUserInputWithTwoConditions(input, 1,
+								numberOfDaysInAMonth, text);
 
 						input.nextLine();
 						// uzimamo unos od korisnika
@@ -238,65 +137,19 @@ public class CalendarApplication {
 						// pozivamo metodu koja ispisuje reminder list menu
 						printReminderListMenu();
 
-						boolean wrongReminderOption = true;
-
-						while (wrongReminderOption) {
-							try {
-								// uzimamo unos od korisnika
-								System.out.print("Choose your option: ");
-								userReminderOption = input.nextInt();
-
-								wrongReminderOption = false;
-
-								if (userReminderOption < 1
-										|| userReminderOption > 2) {
-									System.out
-											.println("Wrong input. You have to enter a number from 1 to 2.");
-									wrongReminderOption = true;
-								}
-							} catch (Exception ex) {
-								// ako je uhvacen exception ispisujemo
-								// odgovarajucu
-								// poruku
-								System.out
-										.println("Wrong input. You have to enter a number from 1 to 2.");
-								input.nextLine();
-							}
-						}
+						userReminderOption = getIntUserInputWithTwoConditions(
+								input, 1, 2, "Choose your option: ");
 
 						if (userReminderOption == 1) {
 							// DELETE REMINDER
 
-							int indexOfReminder = -1;
-							boolean wrongReminderNumber = true;
-
 							System.out.println(" ");
 
-							while (wrongReminderNumber) {
-								try {
-									// uzimamo unos od korisnika
-									System.out
-											.print("Enter number of reminder you want to delete: ");
-									indexOfReminder = input.nextInt();
-
-									wrongReminderNumber = false;
-
-									if (indexOfReminder < 1) {
-										// ako je unesen broj manji od 1
-										// ispisujemo
-										// odgovarajucu poruku
-										System.out
-												.println("Wrong input. You have to enter a positive integer.");
-										wrongReminderNumber = true;
-									}
-								} catch (Exception ex) {
-									// ako je uhvacen exception ispisujemo
-									// odgovarajucu poruku
-									System.out
-											.println("Wrong input. You have to enter an integer.");
-									input.nextLine();
-								}
-							}
+							// pozivamo metodu koja uzima unos integera od
+							// korisnika sa jednim uslovom
+							int indexOfReminder = getIntUserInputWithOneCondition(
+									input, 1,
+									"Enter number of reminder you want to delete: ");
 
 							// ako je uneseni index veci od posljednjeg indexa u
 							// reminder listi ispisujemo odgovarajucu poruku
@@ -328,7 +181,7 @@ public class CalendarApplication {
 		System.out.println("\nSee you soon!");
 
 	}
-	
+
 	// metoda koja ispisuje header
 	public static void printHeader() {
 		System.out.println("============================"
@@ -378,6 +231,84 @@ public class CalendarApplication {
 		System.out.println("2. Back to main menu");
 		System.out.println("-----------------------------"
 				+ "---------------------------");
+	}
+
+	// metoda koja uzima unos integera od korisnika sa jednim uslovom
+	public static int getIntUserInputWithOneCondition(Scanner input,
+			int condition, String text) {
+		int userInput = 0;
+		// boolean varijabla koja ce kontrolisati petlju
+		boolean wrongUserInput = true;
+
+		// petlja radi dok je unos korisnika pogresan
+		while (wrongUserInput) {
+			try {
+				// uzimamo unos od korisnika
+				System.out.print(text);
+				userInput = input.nextInt();
+
+				// postavljamo boolean varijablu na false da bi izasli
+				// iz petlje ako unos bude ispravan
+				wrongUserInput = false;
+
+				// ako je uslov ispunjen ispisujemo odgovarajucu poruku i
+				// nastavljamo rad petlje
+				if (userInput < condition) {
+					System.out.println("Wrong input. You have to enter a "
+							+ "number bigger or equals to " + condition + ".");
+					wrongUserInput = true;
+				}
+			} catch (Exception ex) {
+				System.out.println("Wrong input. You have to enter a "
+						+ "number bigger or equals to " + condition + ".");
+				input.nextLine();
+			}
+		}
+
+		// vracamo int
+		return userInput;
+	}
+
+	// metoda koja uzima unos integera od korisnika sa dva uslova
+	public static int getIntUserInputWithTwoConditions(Scanner input,
+			int firstCondition, int lastCondition, String text) {
+		int userInput = 0;
+		// boolean varijabla koja ce kontrolisati petlju
+		boolean wrongUserInput = true;
+
+		// petlja radi dok je unos korisnika pogresan
+		while (wrongUserInput) {
+			try {
+				// uzimamo unos od korisnika
+				System.out.print(text);
+				userInput = input.nextInt();
+
+				// postavljamo boolean na false da bi izasli iz petlje
+				wrongUserInput = false;
+
+				// ako je uslov ispunjen ispisujemo odgovarajucu poruku i
+				// nastavljamo rad petlje
+				if (userInput < firstCondition || userInput > lastCondition) {
+					System.out
+							.println("Wrong input. You have to enter a number from "
+									+ firstCondition
+									+ " to "
+									+ lastCondition
+									+ ".");
+					wrongUserInput = true;
+				}
+			} catch (Exception ex) {
+				// ako je uhvacen exception ispisujemo odgovarajucu
+				// poruku
+				System.out
+						.println("Wrong input. You have to enter a number from "
+								+ firstCondition + " to " + lastCondition + ".");
+				input.nextLine();
+			}
+		}
+
+		// vracamo int
+		return userInput;
 	}
 
 	// metoda koja ispisuje kalendar
