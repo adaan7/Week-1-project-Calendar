@@ -121,9 +121,8 @@ public class CalendarApplication {
 			} else if (userOption == 2) {
 				// REMINDER LIST
 
-				if (reminderList.size() == 0) { // ako je reminder lista prazna
-												// ispisujemo odgovarajucu
-												// poruku
+				// ako je reminder lista prazna ispisujemo odgovarajucu poruku
+				if (reminderList.size() == 0) {
 					System.out.println("\nReminder list is empty.");
 				} else {
 					// sortiramo reminder listu po datumu
