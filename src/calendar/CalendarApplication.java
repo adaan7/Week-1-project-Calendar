@@ -383,6 +383,11 @@ public class CalendarApplication {
 	public static void copyFileToReminderList(ArrayList<Reminder> reminderList)
 			throws IOException {
 		Path path = Paths.get("src/calendar/reminder list.txt");
+		
+		if (!Files.exists(path)) {
+			Files.createFile(path);
+		}
+		
 		// pravimo novi scanner objekat koji ce citati podatke sa fajla
 		Scanner readFile = new Scanner(path);
 
