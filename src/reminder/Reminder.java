@@ -1,4 +1,4 @@
-package calendar;
+package reminder;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
