@@ -34,7 +34,7 @@ public class CalendarApplication {
 		// kreiramo arraylist objekat
 		ArrayList<Reminder> reminderList = new ArrayList<>();
 		// kopiramo podatke sa fajla u arraylist
-		file_input_output.FileOutput.copyFileToReminderList(reminderList);
+		fileinputoutput.FileOutput.copyFileToReminderList(reminderList);
 
 		int userOption = 0;
 
@@ -47,7 +47,7 @@ public class CalendarApplication {
 
 			// pozivamo metodu koja uzima unos integera od korisnika sa dva
 			// uslova
-			userOption = user_input.IntUserInput
+			userOption = userinput.IntUserInput
 					.getIntUserInputWithTwoConditions(input, 1, 3,
 							"Choose your option: ");
 
@@ -58,12 +58,12 @@ public class CalendarApplication {
 
 				// pozivamo metodu koja uzima unos integera od korisnika sa
 				// jednim uslovom
-				int year = user_input.IntUserInput
-						.getIntUserInputWithOneCondition(input, 1970,
+				int year = userinput.IntUserInput
+						.getIntUserInputWithOneCondition(input, 1,
 								"Enter a year (YYYY format): ");
 				// pozivamo metodu koja uzima unos integera od korisnika sa dva
 				// uslova
-				int month = user_input.IntUserInput
+				int month = userinput.IntUserInput
 						.getIntUserInputWithTwoConditions(input, 1, 12,
 								"Enter a month (number from 1 to 12): ");
 
@@ -85,7 +85,7 @@ public class CalendarApplication {
 
 					// pozivamo metodu koja uzima unos integera od korisnika sa
 					// dva uslova
-					userCalendarOption = user_input.IntUserInput
+					userCalendarOption = userinput.IntUserInput
 							.getIntUserInputWithTwoConditions(input, 1, 2,
 									"Choose your option: ");
 
@@ -101,11 +101,11 @@ public class CalendarApplication {
 
 						// pozivamo metodu koja uzima unos integera od korisnika
 						// sa dva uslova
-						day = user_input.IntUserInput
+						day = userinput.IntUserInput
 								.getIntUserInputWithTwoConditions(input, 1,
 										numberOfDaysInAMonth, text);
 
-						note = user_input.StringUserInput
+						note = userinput.StringUserInput
 								.getStringUserInput(input);
 
 						// pravimo novi objekat gregoriancalendar sa specificnom
@@ -118,7 +118,7 @@ public class CalendarApplication {
 						// dodajemo novi reminder objekat u arraylist
 						reminderList.add(newReminder);
 						// pozivamo metodu koja ispisuje reminder list u fajl
-						file_input_output.FileInput
+						fileinputoutput.FileInput
 								.copyReminderListToFile(reminderList);
 
 						System.out
@@ -143,7 +143,7 @@ public class CalendarApplication {
 						// pozivamo metodu koja ispisuje reminder list menu
 						display.Display.printReminderListMenu();
 
-						userReminderOption = user_input.IntUserInput
+						userReminderOption = userinput.IntUserInput
 								.getIntUserInputWithTwoConditions(input, 1, 2,
 										"Choose your option: ");
 
@@ -154,7 +154,7 @@ public class CalendarApplication {
 
 							// pozivamo metodu koja uzima unos integera od
 							// korisnika sa jednim uslovom
-							int indexOfReminder = user_input.IntUserInput
+							int indexOfReminder = userinput.IntUserInput
 									.getIntUserInputWithOneCondition(input, 1,
 											"Enter number of reminder you want to delete: ");
 
@@ -170,7 +170,7 @@ public class CalendarApplication {
 								// reminder liste
 								reminderList.remove(indexOfReminder - 1);
 								// ispisujemo reminder listu u fajl
-								file_input_output.FileInput
+								fileinputoutput.FileInput
 										.copyReminderListToFile(reminderList);
 
 								System.out
