@@ -1,4 +1,4 @@
-package userinput;
+package ba.adan.calendarapp.ui;
 
 import java.util.Scanner;
 

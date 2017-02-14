@@ -1,10 +1,10 @@
-package display;
+package ba.adan.calendarapp.display;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 
-import reminder.Reminder;
+import ba.adan.calendarapp.reminder.Reminder;
 
 public class Display {
 

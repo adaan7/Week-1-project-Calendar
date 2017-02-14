@@ -1,4 +1,4 @@
-package calendar;
+package ba.adan.calendarapp;
 
 import java.io.FilterInputStream;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
-import reminder.Reminder;
+import ba.adan.calendarapp.reminder.Reminder;
 
 public class CalendarApplication {
 
@@ -34,20 +34,20 @@ public class CalendarApplication {
 		// kreiramo arraylist objekat
 		ArrayList<Reminder> reminderList = new ArrayList<>();
 		// kopiramo podatke sa fajla u arraylist
-		fileinputoutput.FileOutput.copyFileToReminderList(reminderList);
+		ba.adan.calendarapp.fileio.FileOutput.copyFileToReminderList(reminderList);
 
 		int userOption = 0;
 
 		// pozivamo metodu koja ispisuje header
-		display.Display.printHeader();
+		ba.adan.calendarapp.display.Display.printHeader();
 
 		while (userOption != 3) {
 			// pozivamo metodu koja ispisuje main menu
-			display.Display.printMainMenu();
+			ba.adan.calendarapp.display.Display.printMainMenu();
 
 			// pozivamo metodu koja uzima unos integera od korisnika sa dva
 			// uslova
-			userOption = userinput.IntUserInput
+			userOption = ba.adan.calendarapp.ui.IntUserInput
 					.getIntUserInputWithTwoConditions(input, 1, 3,
 							"Choose your option: ");
 
@@ -58,12 +58,12 @@ public class CalendarApplication {
 
 				// pozivamo metodu koja uzima unos integera od korisnika sa
 				// jednim uslovom
-				int year = userinput.IntUserInput
+				int year = ba.adan.calendarapp.ui.IntUserInput
 						.getIntUserInputWithOneCondition(input, 1,
 								"Enter a year (YYYY format): ");
 				// pozivamo metodu koja uzima unos integera od korisnika sa dva
 				// uslova
-				int month = userinput.IntUserInput
+				int month = ba.adan.calendarapp.ui.IntUserInput
 						.getIntUserInputWithTwoConditions(input, 1, 12,
 								"Enter a month (number from 1 to 12): ");
 
@@ -75,17 +75,17 @@ public class CalendarApplication {
 						.getActualMaximum(Calendar.DAY_OF_MONTH);
 
 				// pozivamo metodu koja ispisuje kalendar za odabrani mjesec
-				display.Display.displayCalendar(calendar);
+				ba.adan.calendarapp.display.Display.displayCalendar(calendar);
 
 				int userCalendarOption = 0;
 
 				while (userCalendarOption != 2) {
 					// pozivamo metodu koja ispisuje display calendar menu
-					display.Display.printDisplayCalendarMenu();
+					ba.adan.calendarapp.display.Display.printDisplayCalendarMenu();
 
 					// pozivamo metodu koja uzima unos integera od korisnika sa
 					// dva uslova
-					userCalendarOption = userinput.IntUserInput
+					userCalendarOption = ba.adan.calendarapp.ui.IntUserInput
 							.getIntUserInputWithTwoConditions(input, 1, 2,
 									"Choose your option: ");
 
@@ -101,11 +101,11 @@ public class CalendarApplication {
 
 						// pozivamo metodu koja uzima unos integera od korisnika
 						// sa dva uslova
-						day = userinput.IntUserInput
+						day = ba.adan.calendarapp.ui.IntUserInput
 								.getIntUserInputWithTwoConditions(input, 1,
 										numberOfDaysInAMonth, text);
 
-						note = userinput.StringUserInput
+						note = ba.adan.calendarapp.ui.StringUserInput
 								.getStringUserInput(input);
 
 						// pravimo novi objekat gregoriancalendar sa specificnom
@@ -118,7 +118,7 @@ public class CalendarApplication {
 						// dodajemo novi reminder objekat u arraylist
 						reminderList.add(newReminder);
 						// pozivamo metodu koja ispisuje reminder list u fajl
-						fileinputoutput.FileInput
+						ba.adan.calendarapp.fileio.FileInput
 								.copyReminderListToFile(reminderList);
 
 						System.out
@@ -135,15 +135,15 @@ public class CalendarApplication {
 					// sortiramo reminder listu po datumu
 					Collections.sort(reminderList);
 					// pozivamo metodu koja ispisuje reminder listu
-					display.Display.printReminderList(reminderList);
+					ba.adan.calendarapp.display.Display.printReminderList(reminderList);
 
 					int userReminderOption = 0;
 
 					while (userReminderOption != 2) {
 						// pozivamo metodu koja ispisuje reminder list menu
-						display.Display.printReminderListMenu();
+						ba.adan.calendarapp.display.Display.printReminderListMenu();
 
-						userReminderOption = userinput.IntUserInput
+						userReminderOption = ba.adan.calendarapp.ui.IntUserInput
 								.getIntUserInputWithTwoConditions(input, 1, 2,
 										"Choose your option: ");
 
@@ -154,7 +154,7 @@ public class CalendarApplication {
 
 							// pozivamo metodu koja uzima unos integera od
 							// korisnika sa jednim uslovom
-							int indexOfReminder = userinput.IntUserInput
+							int indexOfReminder = ba.adan.calendarapp.ui.IntUserInput
 									.getIntUserInputWithOneCondition(input, 1,
 											"Enter number of reminder you want to delete: ");
 
@@ -170,7 +170,7 @@ public class CalendarApplication {
 								// reminder liste
 								reminderList.remove(indexOfReminder - 1);
 								// ispisujemo reminder listu u fajl
-								fileinputoutput.FileInput
+								ba.adan.calendarapp.fileio.FileInput
 										.copyReminderListToFile(reminderList);
 
 								System.out

@@ -1,4 +1,4 @@
-package fileinputoutput;
+package ba.adan.calendarapp.fileio;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import reminder.Reminder;
+import ba.adan.calendarapp.reminder.Reminder;
 
 public class FileInput {
 

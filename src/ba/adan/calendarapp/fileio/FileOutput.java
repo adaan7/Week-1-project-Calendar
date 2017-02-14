@@ -1,4 +1,4 @@
-package fileinputoutput;
+package ba.adan.calendarapp.fileio;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -9,7 +9,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
-import reminder.Reminder;
+import ba.adan.calendarapp.reminder.Reminder;
 
 public class FileOutput {
 
