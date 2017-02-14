@@ -16,7 +16,7 @@ public class FileOutput {
 	// metoda koja kopira podatke iz fajla u reminder list
 	public static void copyFileToReminderList(ArrayList<Reminder> reminderList)
 			throws IOException {
-		Path path = Paths.get("src/ba.adan.calendarapp.reminder.reminder files/reminder list.txt");
+		Path path = Paths.get("src/ba/adan/calendarapp/reminder/reminder files/reminder list.txt");
 
 		// provjerimo da li postoji fajl, ako ne, kreiramo novi fajl
 		if (!Files.exists(path)) {
