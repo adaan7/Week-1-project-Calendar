@@ -7,8 +7,8 @@ public class IntUserInput {
 	// metoda koja uzima unos integera od korisnika sa jednim uslovom
 	public static int getIntUserInputWithOneCondition(Scanner input,
 			int condition, String text) {
+
 		int userInput = 0;
-		// boolean varijabla koja ce kontrolisati petlju
 		boolean wrongUserInput = true;
 
 		// petlja radi dok je unos korisnika pogresan
@@ -36,15 +36,14 @@ public class IntUserInput {
 			}
 		}
 
-		// vracamo int
 		return userInput;
 	}
 
 	// metoda koja uzima unos integera od korisnika sa dva uslova
 	public static int getIntUserInputWithTwoConditions(Scanner input,
 			int firstCondition, int lastCondition, String text) {
+
 		int userInput = 0;
-		// boolean varijabla koja ce kontrolisati petlju
 		boolean wrongUserInput = true;
 
 		// petlja radi dok je unos korisnika pogresan
@@ -78,7 +77,6 @@ public class IntUserInput {
 			}
 		}
 
-		// vracamo int
 		return userInput;
 	}
 

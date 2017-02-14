@@ -16,7 +16,8 @@ public class FileOutput {
 	// metoda koja kopira podatke iz fajla u reminder list
 	public static void copyFileToReminderList(ArrayList<Reminder> reminderList)
 			throws IOException {
-		Path path = Paths.get("src/ba/adan/calendarapp/reminder/reminder files/reminder list.txt");
+		Path path = Paths
+				.get("src/ba/adan/calendarapp/reminder/reminder files/reminder list.txt");
 
 		// provjerimo da li postoji fajl, ako ne, kreiramo novi fajl
 		if (!Files.exists(path)) {
@@ -26,8 +27,7 @@ public class FileOutput {
 		// pravimo novi scanner objekat koji ce citati podatke sa fajla
 		Scanner readFile = new Scanner(path);
 
-		while (readFile.hasNextLine()) { // petlja radi sve dok ima linija u
-											// fajlu
+		while (readFile.hasNextLine()) {
 			// pravimo string sa linijom koja sadrzi datum
 			String date = readFile.nextLine();
 			// pravimo string sa linijom koja sadrzi note
@@ -42,6 +42,7 @@ public class FileOutput {
 			// pravimo novi objekat gregoriancalendar sa specificnom godinom,
 			// mjesecom i datumom
 			Calendar newCalendar = new GregorianCalendar(year, month, day);
+
 			// pravimo novi objekat reminder sa note-om i datumom koji smo
 			// ucitali sa fajla
 			Reminder newReminder = new Reminder(note, newCalendar);

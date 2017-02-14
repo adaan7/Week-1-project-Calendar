@@ -15,7 +15,8 @@ public class FileInput {
 	// metoda koja kopira reminder list u fajl
 	public static void copyReminderListToFile(ArrayList<Reminder> reminderList)
 			throws IOException {
-		Path path = Paths.get("src/ba/adan/calendarapp/reminder/reminder files/reminder list.txt");
+		Path path = Paths
+				.get("src/ba/adan/calendarapp/reminder/reminder files/reminder list.txt");
 
 		// provjerimo da li postoji fajl, ako ne, kreiramo novi fajl
 		if (!Files.exists(path)) {
@@ -26,7 +27,7 @@ public class FileInput {
 		BufferedWriter writer = Files.newBufferedWriter(path);
 
 		for (int i = 0; i < reminderList.size(); i++) {
-			// deklarišemo int varijable koje sadrze dan, mjesec i godinu
+			// deklarisemo int varijable koje sadrze dan, mjesec i godinu
 			int day = reminderList.get(i).getCalendar().get(Calendar.DATE);
 			int month = reminderList.get(i).getCalendar().get(Calendar.MONTH);
 			int year = reminderList.get(i).getCalendar().get(Calendar.YEAR);

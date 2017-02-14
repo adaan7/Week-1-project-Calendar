@@ -79,10 +79,10 @@ public class Display {
 		System.out.printf("\n %-3s\t%-3s\t%-3s\t%-3s\t%-3s\t%-3s\t%-3s\t\n ",
 				"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
 
-		// deklarišemo varijablu int sa brojem dana u odabranom mjesecu
+		// deklarisemo varijablu int sa brojem dana u odabranom mjesecu
 		int numberOfDaysInAMonth = calendar
 				.getActualMaximum(Calendar.DAY_OF_MONTH);
-		// deklarišemo varijablu int sa prvim danom u mjesecu
+		// deklarisemo varijablu int sa prvim danom u mjesecu
 		int firstDayOfMonth = calendar.get(Calendar.DAY_OF_WEEK) - 1;
 		int counter = 0;
 

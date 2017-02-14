@@ -6,8 +6,8 @@ public class StringUserInput {
 
 	// metoda koja uzima unos stringa od korisnika
 	public static String getStringUserInput(Scanner input) {
-		String userInput = "";
 
+		String userInput = "";
 		boolean wrongUserInput = true;
 
 		input.nextLine();
