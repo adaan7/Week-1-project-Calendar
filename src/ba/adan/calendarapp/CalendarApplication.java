@@ -34,7 +34,8 @@ public class CalendarApplication {
 		// kreiramo arraylist objekat
 		ArrayList<Reminder> reminderList = new ArrayList<>();
 		// kopiramo podatke sa fajla u arraylist
-		ba.adan.calendarapp.fileio.FileOutput.copyFileToReminderList(reminderList);
+		ba.adan.calendarapp.fileio.FileOutput
+				.copyFileToReminderList(reminderList);
 
 		int userOption = 0;
 
@@ -81,7 +82,8 @@ public class CalendarApplication {
 
 				while (userCalendarOption != 2) {
 					// pozivamo metodu koja ispisuje display calendar menu
-					ba.adan.calendarapp.display.Display.printDisplayCalendarMenu();
+					ba.adan.calendarapp.display.Display
+							.printDisplayCalendarMenu();
 
 					// pozivamo metodu koja uzima unos integera od korisnika sa
 					// dva uslova
@@ -135,13 +137,15 @@ public class CalendarApplication {
 					// sortiramo reminder listu po datumu
 					Collections.sort(reminderList);
 					// pozivamo metodu koja ispisuje reminder listu
-					ba.adan.calendarapp.display.Display.printReminderList(reminderList);
+					ba.adan.calendarapp.display.Display
+							.printReminderList(reminderList);
 
 					int userReminderOption = 0;
 
 					while (userReminderOption != 2) {
 						// pozivamo metodu koja ispisuje reminder list menu
-						ba.adan.calendarapp.display.Display.printReminderListMenu();
+						ba.adan.calendarapp.display.Display
+								.printReminderListMenu();
 
 						userReminderOption = ba.adan.calendarapp.ui.IntUserInput
 								.getIntUserInputWithTwoConditions(input, 1, 2,
