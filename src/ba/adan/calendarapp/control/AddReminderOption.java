@@ -6,7 +6,10 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
+import ba.adan.calendarapp.fileio.FileInput;
 import ba.adan.calendarapp.reminder.Reminder;
+import ba.adan.calendarapp.ui.IntUserInput;
+import ba.adan.calendarapp.ui.StringUserInput;
 
 public class AddReminderOption {
 
@@ -21,13 +24,11 @@ public class AddReminderOption {
 		System.out.println(" ");
 
 		// pozivamo metodu koja uzima unos integera od korisnika
-		// sa dva uslova
-		day = ba.adan.calendarapp.ui.IntUserInput
-				.getIntUserInputWithTwoConditions(input, 1,
-						numberOfDaysInAMonth, text);
+		day = IntUserInput.getIntUserInputWithTwoConditions(input, 1,
+				numberOfDaysInAMonth, text);
 
 		// pozivamo metodu koja uzima unos stringa od korisnika
-		note = ba.adan.calendarapp.ui.StringUserInput.getStringUserInput(input);
+		note = StringUserInput.getStringUserInput(input);
 
 		// pravimo novi objekat gregoriancalendar sa specificnom
 		// godinom, mjesecom i danom
@@ -35,12 +36,12 @@ public class AddReminderOption {
 
 		// pravimo novi reminder objekat sa datumom i note-om
 		Reminder newReminder = new Reminder(note, newCalendar);
+
 		// dodajemo novi reminder objekat u arraylist
 		reminderList.add(newReminder);
 
 		// pozivamo metodu koja ispisuje reminder list u fajl
-		ba.adan.calendarapp.fileio.FileInput
-				.copyReminderListToFile(reminderList);
+		FileInput.copyReminderListToFile(reminderList);
 
 		System.out.println("\nReminder has been successfully added!");
 	}

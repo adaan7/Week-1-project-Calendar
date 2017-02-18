@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
+import ba.adan.calendarapp.display.Display;
 import ba.adan.calendarapp.reminder.Reminder;
+import ba.adan.calendarapp.ui.IntUserInput;
 
 public class ReminderListOption {
 
@@ -21,15 +23,15 @@ public class ReminderListOption {
 			Collections.sort(reminderList);
 
 			// pozivamo metodu koja ispisuje reminder listu
-			ba.adan.calendarapp.display.Display.printReminderList(reminderList);
+			Display.printReminderList(reminderList);
 
 			int userReminderOption = 0;
 
 			while (userReminderOption != 2) {
 				// pozivamo metodu koja ispisuje reminder list menu
-				ba.adan.calendarapp.display.Display.printReminderListMenu();
+				Display.printReminderListMenu();
 
-				userReminderOption = ba.adan.calendarapp.ui.IntUserInput
+				userReminderOption = IntUserInput
 						.getIntUserInputWithTwoConditions(input, 1, 2,
 								"Choose your option: ");
 

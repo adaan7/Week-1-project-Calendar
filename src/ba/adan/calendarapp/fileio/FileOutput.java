@@ -28,9 +28,7 @@ public class FileOutput {
 		Scanner readFile = new Scanner(path);
 
 		while (readFile.hasNextLine()) {
-			// pravimo string sa linijom koja sadrzi datum
 			String date = readFile.nextLine();
-			// pravimo string sa linijom koja sadrzi note
 			String note = readFile.nextLine();
 
 			// string datum prebacujemo u array i uzimamo dan, mjesec i godinu
@@ -51,7 +49,6 @@ public class FileOutput {
 			reminderList.add(newReminder);
 		}
 
-		// zatvaramo scanner
 		readFile.close();
 	}
 

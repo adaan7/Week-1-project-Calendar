@@ -61,10 +61,8 @@ public class Display {
 
 	// metoda koja ispisuje kalendar
 	public static void displayCalendar(Calendar calendar) {
-		// pravimo string sa nazivom odrabranog mjeseca
 		String monthName = calendar.getDisplayName(Calendar.MONTH,
 				Calendar.LONG, Locale.getDefault());
-		// pravimo string sa nazivom odabrane godine
 		String sYear = calendar.get(Calendar.YEAR) + "";
 		String dashes = "--------------------------"
 				+ "--------------------------";
@@ -79,10 +77,8 @@ public class Display {
 		System.out.printf("\n %-3s\t%-3s\t%-3s\t%-3s\t%-3s\t%-3s\t%-3s\t\n ",
 				"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
 
-		// deklarisemo varijablu int sa brojem dana u odabranom mjesecu
 		int numberOfDaysInAMonth = calendar
 				.getActualMaximum(Calendar.DAY_OF_MONTH);
-		// deklarisemo varijablu int sa prvim danom u mjesecu
 		int firstDayOfMonth = calendar.get(Calendar.DAY_OF_WEEK) - 1;
 		int counter = 0;
 
@@ -116,6 +112,7 @@ public class Display {
 		for (int i = 0; i < reminderList.size(); i++) {
 			// pravimo novi objekat calendar koji uzima trenutni calendar
 			Calendar currentCalendar = reminderList.get(i).getCalendar();
+
 			// pravimo string sa trenutnim datumom
 			String currentDate = currentCalendar.get(Calendar.DATE) + "."
 					+ (currentCalendar.get(Calendar.MONTH) + 1) + "."

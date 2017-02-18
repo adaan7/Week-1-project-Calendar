@@ -5,14 +5,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import ba.adan.calendarapp.display.Display;
+import ba.adan.calendarapp.fileio.FileOutput;
 import ba.adan.calendarapp.reminder.Reminder;
+import ba.adan.calendarapp.ui.IntUserInput;
 
 public class CalendarControl {
 
 	// metoda pomocu koje pokrecemo calendar aplikaciju
 	public static void calendarApplication() throws IOException {
 
-		// novi scanner
 		Scanner input = new Scanner(new FilterInputStream(System.in) {
 			@Override
 			public void close() throws IOException {
@@ -22,23 +24,20 @@ public class CalendarControl {
 
 		ArrayList<Reminder> reminderList = new ArrayList<>();
 		// kopiramo podatke sa fajla u arraylist
-		ba.adan.calendarapp.fileio.FileOutput
-				.copyFileToReminderList(reminderList);
+		FileOutput.copyFileToReminderList(reminderList);
 
 		int userOption = 0;
 
 		// pozivamo metodu koja ispisuje header
-		ba.adan.calendarapp.display.Display.printHeader();
+		Display.printHeader();
 
 		while (userOption != 3) {
 			// pozivamo metodu koja ispisuje main menu
-			ba.adan.calendarapp.display.Display.printMainMenu();
+			Display.printMainMenu();
 
-			// pozivamo metodu koja uzima unos integera od korisnika sa dva
-			// uslova
-			userOption = ba.adan.calendarapp.ui.IntUserInput
-					.getIntUserInputWithTwoConditions(input, 1, 3,
-							"Choose your option: ");
+			// pozivamo metodu koja uzima unos integera od korisnika
+			userOption = IntUserInput.getIntUserInputWithTwoConditions(input,
+					1, 3, "Choose your option: ");
 
 			if (userOption == 1) {
 				// DISPLAY CALENDAR
@@ -55,7 +54,6 @@ public class CalendarControl {
 			}
 		}
 
-		// zatvaramo scanner
 		input.close();
 
 		// ispisujemo pozdravnu poruku jer je korisnik izasao iz aplikacije
